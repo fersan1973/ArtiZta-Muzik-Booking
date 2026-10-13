@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +21,7 @@
       justify-content: center;
       align-items: center;
       min-height: 100vh;
-      padding: 16px;
+      padding: 12px;
     }
     .ecard-container {
       width: 100%;
@@ -30,25 +29,31 @@
       background: #090a0d;
       border: 2px solid #d4af37;
       border-radius: 18px;
-      box-shadow: 0 0 35px rgba(212, 175, 55, 0.28), 0 25px 60px rgba(0,0,0,0.9);
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.3), 0 25px 60px rgba(0,0,0,0.9);
       overflow: hidden;
       position: relative;
     }
 
-    /* Tap prompt header */
-    .tap-hint {
+    .tap-hint-bar {
+      padding: 10px 14px;
       text-align: center;
-      padding: 10px 10px 8px;
+      background: linear-gradient(180deg, rgba(212,175,55,0.25) 0%, rgba(9,10,13,0.95) 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.4);
+    }
+    .tap-pill {
+      display: inline-block;
+      padding: 5px 14px;
+      border: 1px solid #d4af37;
+      border-radius: 999px;
       font-size: 10.5px;
-      letter-spacing: 2.5px;
-      color: #d4af37;
+      letter-spacing: 2px;
+      color: #ffd875;
       text-transform: uppercase;
-      font-weight: 700;
-      background: linear-gradient(180deg, rgba(212,175,55,0.18) 0%, rgba(9,10,13,0.9) 100%);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+      font-weight: 800;
+      box-shadow: 0 0 10px rgba(212,175,55,0.3);
     }
 
-    /* Flyer Image & Interactive Hotspots */
+    /* Poster Frame */
     .flyer-wrapper {
       position: relative;
       width: 100%;
@@ -61,13 +66,13 @@
       display: block;
     }
 
-    /* 8 Hotspot Buttons aligned to the 2x4 grid on the flyer */
+    /* 8 Hotspot Buttons aligned over the 2x4 grid */
     .artist-overlay {
       position: absolute;
-      top: 28%;    /* starts over first row of artist boxes */
+      top: 25%;
       left: 2%;
       width: 96%;
-      height: 58%; /* covers all 8 artist boxes down to signature */
+      height: 62%;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: repeat(4, 1fr);
@@ -76,19 +81,19 @@
     }
     .hotspot-btn {
       background: transparent;
-      border: 1px dashed rgba(212, 175, 55, 0.0);
+      border: 1px dashed rgba(212, 175, 55, 0);
       border-radius: 8px;
       cursor: pointer;
       outline: none;
       -webkit-tap-highlight-color: transparent;
-      transition: background 0.2s ease, border-color 0.2s ease;
+      transition: background 0.2s, border-color 0.2s;
     }
     .hotspot-btn:active, .hotspot-btn:hover {
-      background: rgba(212, 175, 55, 0.28);
+      background: rgba(212, 175, 55, 0.35);
       border-color: #d4af37;
     }
 
-    /* Powered By Banner */
+    /* Powered By Badge */
     .powered-bar {
       margin: 14px 16px 6px;
       background: linear-gradient(90deg, rgba(212,175,55,0.06), rgba(212,175,55,0.22), rgba(212,175,55,0.06));
@@ -158,18 +163,10 @@
       box-shadow: 0 4px 18px rgba(212, 175, 55, 0.45);
       font-size: 15px;
     }
-    .btn-phone:hover {
-      filter: brightness(1.1);
-      transform: scale(1.02);
-    }
     .btn-email {
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid rgba(212, 175, 55, 0.6);
       color: #d4af37;
-    }
-    .btn-email:hover {
-      background: rgba(212, 175, 55, 0.15);
-      color: #fff;
     }
     .btn-share {
       background: transparent;
@@ -217,11 +214,6 @@
       box-shadow: 0 0 35px rgba(212, 175, 55, 0.4);
       text-align: center;
       position: relative;
-      animation: popIn 0.25s ease-out;
-    }
-    @keyframes popIn {
-      from { transform: scale(0.9); opacity: 0; }
-      to { transform: scale(1); opacity: 1; }
     }
     .modal-close {
       position: absolute;
@@ -231,9 +223,7 @@
       border: none;
       color: #8c8f9b;
       font-size: 22px;
-      font-weight: 700;
       cursor: pointer;
-      line-height: 1;
     }
     .modal-genre {
       font-size: 10px;
@@ -245,7 +235,7 @@
     .modal-title {
       font-family: 'Cinzel', serif;
       font-size: 20px;
-      letter-spacing: 2px;
+      letter-spacing: 1.5px;
       color: #fff;
       margin: 4px 0 16px;
       font-weight: 900;
@@ -263,37 +253,133 @@
       font-weight: 700;
       text-decoration: none;
       color: #fff;
-      transition: filter 0.2s, transform 0.2s;
     }
-    .outlet-btn:hover {
-      filter: brightness(1.15);
-      transform: translateY(-1px);
-    }
-    .btn-yt {
-      background: #ff0000;
-      box-shadow: 0 3px 12px rgba(255, 0, 0, 0.35);
-    }
-    .btn-sp {
-      background: #1db954;
-      box-shadow: 0 3px 12px rgba(29, 185, 84, 0.35);
-    }
-    .btn-ig {
-      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
-      box-shadow: 0 3px 12px rgba(220, 39, 67, 0.35);
-    }
-    .btn-fb {
-      background: #1877f2;
-      box-shadow: 0 3px 12px rgba(24, 119, 242, 0.35);
-    }
-    .outlet-icon {
-      font-size: 16px;
-    }
+    .btn-yt { background: #ff0000; box-shadow: 0 3px 12px rgba(255, 0, 0, 0.35); }
+    .btn-sp { background: #1db954; box-shadow: 0 3px 12px rgba(29, 185, 84, 0.35); }
+    .btn-ig { background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888); box-shadow: 0 3px 12px rgba(220, 39, 67, 0.35); }
+    .btn-fb { background: #1877f2; box-shadow: 0 3px 12px rgba(24, 119, 242, 0.35); }
   </style>
 </head>
 <body>
 
   <div class="ecard-container">
-    <div class="tap-hint">👆 Tap Any Artist To Open Outlets</div>
+    <div class="tap-hint-bar">
+      <div class="tap-pill">✨ Tap Any Artist To Open Outlets</div>
+    </div>
 
+    <!-- Image loaded with exact filename and direct raw GitHub fallback -->
     <div class="flyer-wrapper">
-      <img src="07AB0C5F-46E6-479E-8B18-317E112D7591.png" alt="Artista
+      <img 
+        src="07AB0C5F-46E6-479E-8B18-317E112D7591.png" 
+        alt="Artista Music Official Artist Roster 2026"
+        onerror="this.onerror=null; this.src='https://raw.githubusercontent.com/fersan1973/ArtiZta-Muzik-Booking/main/07AB0C5F-46E6-479E-8B18-317E112D7591.png';"
+      >
+      
+      <!-- 8 Hotspots mapped to the poster boxes -->
+      <div class="artist-overlay">
+        <!-- Row 1 -->
+        <button class="hotspot-btn" onclick="openArtist('Grupo Asalto', 'Norteño', 'Grupo+Asalto', 'Grupo+Asalto+oficial')"></button>
+        <button class="hotspot-btn" onclick="openArtist('Grupo Yahari', 'Pituficumbia', 'Grupo+Yahari', 'Grupo+Yahari')"></button>
+
+        <!-- Row 2 -->
+        <button class="hotspot-btn" onclick="openArtist('Ricardo Castillón y La Diferenzia', 'Tejano', 'Ricardo+Castillon+La+Diferenzia', 'Ricardo+Castillon')"></button>
+        <button class="hotspot-btn" onclick="openArtist('Los Iniciadores CHDB', 'Norteño Sax', 'Los+Iniciadores+CHDB', 'Los+Iniciadores+CHDB')"></button>
+
+        <!-- Row 3 -->
+        <button class="hotspot-btn" onclick="openArtist('The Delta Boyz', 'Conjunto Rock', 'The+Delta+Boyz', 'The+Delta+Boyz')"></button>
+        <button class="hotspot-btn" onclick="openArtist('Sabor Kolombia', 'Cumbia', 'Sabor+Kolombia', 'Sabor+Kolombia')"></button>
+
+        <!-- Row 4 -->
+        <button class="hotspot-btn" onclick="openArtist('La Calma', 'Tejano', 'Grupo+La+Calma', 'La+Calma+Tejano')"></button>
+        <button class="hotspot-btn" onclick="openArtist('Grupo Luxoria', 'Latin Rock / Fusion', 'Grupo+Luxoria', 'Grupo+Luxoria')"></button>
+      </div>
+    </div>
+
+    <!-- Official Partnership Badge -->
+    <div class="powered-bar">
+      <div class="powered-label">⚡ POWERED BY</div>
+      <div class="powered-name">REGIOMEX MUSIC GROUP</div>
+    </div>
+
+    <!-- Booking Desk -->
+    <div class="booking-dock">
+      <div class="booking-label">Official Booking Representation</div>
+      <div class="rep-name">Fernando Sanchez</div>
+
+      <a href="tel:2103850515" class="btn-action btn-phone">
+        📞 Call (210) 385-0515
+      </a>
+
+      <a href="mailto:Fersan17@gmail.com?subject=Booking%20Inquiry%20-%20Artista%20Music%20Roster%202026" class="btn-action btn-email">
+        ✉️ Email Fersan17@gmail.com
+      </a>
+
+      <button onclick="shareCard()" class="btn-share">📤 Share This eCard</button>
+
+      <div class="footer-note">
+        All Rights Reserved • Artista Music LLC<br>
+        <span class="footer-highlight">POWERED BY REGIOMEX MUSIC GROUP</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Artist Modal -->
+  <div id="artistModal" class="modal-overlay" onclick="closeOnBackdrop(event)">
+    <div class="modal-card">
+      <button class="modal-close" onclick="closeModal()">✕</button>
+      <div id="modalGenre" class="modal-genre">Genre</div>
+      <div id="modalName" class="modal-title">Artist Name</div>
+
+      <a id="btnYoutube" href="#" target="_blank" class="outlet-btn btn-yt">
+        <span>▶️</span> Watch on YouTube
+      </a>
+      <a id="btnSpotify" href="#" target="_blank" class="outlet-btn btn-sp">
+        <span>🎧</span> Listen on Spotify
+      </a>
+      <a id="btnInstagram" href="#" target="_blank" class="outlet-btn btn-ig">
+        <span>📸</span> View Instagram
+      </a>
+      <a id="btnFacebook" href="#" target="_blank" class="outlet-btn btn-fb">
+        <span>👥</span> Follow on Facebook
+      </a>
+    </div>
+  </div>
+
+  <script>
+    function openArtist(name, genre, queryName, socialHandle) {
+      document.getElementById('modalName').textContent = name;
+      document.getElementById('modalGenre').textContent = genre;
+
+      document.getElementById('btnYoutube').href = 'https://www.youtube.com/results?search_query=' + queryName + '+oficial';
+      document.getElementById('btnSpotify').href = 'https://open.spotify.com/search/' + queryName;
+      document.getElementById('btnInstagram').href = 'https://www.instagram.com/explore/tags/' + socialHandle.replace(/\+/g, '').toLowerCase() + '/';
+      document.getElementById('btnFacebook').href = 'https://www.facebook.com/search/top?q=' + queryName;
+
+      document.getElementById('artistModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+      document.getElementById('artistModal').style.display = 'none';
+    }
+
+    function closeOnBackdrop(e) {
+      if (e.target.id === 'artistModal') {
+        closeModal();
+      }
+    }
+
+    function shareCard() {
+      if (navigator.share) {
+        navigator.share({
+          title: 'ARTISTA MUSIC - Official Booking Roster 2026',
+          text: 'Official booking contact and roster for Artista Music. Powered by Regiomex Music Group.',
+          url: window.location.href,
+        }).catch(() => {});
+      } else {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+      }
+    }
+  </script>
+</body>
+</html>
