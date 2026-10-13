@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,10 +35,23 @@
       position: relative;
     }
 
-    /* Flyer Showcase */
+    /* Tap prompt header */
+    .tap-hint {
+      text-align: center;
+      padding: 10px 10px 8px;
+      font-size: 10.5px;
+      letter-spacing: 2.5px;
+      color: #d4af37;
+      text-transform: uppercase;
+      font-weight: 700;
+      background: linear-gradient(180deg, rgba(212,175,55,0.18) 0%, rgba(9,10,13,0.9) 100%);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+    }
+
+    /* Flyer Image & Interactive Hotspots */
     .flyer-wrapper {
+      position: relative;
       width: 100%;
-      line-height: 0;
       background: #000;
       border-bottom: 2px solid #d4af37;
     }
@@ -45,10 +59,36 @@
       width: 100%;
       height: auto;
       display: block;
-      object-fit: contain;
     }
 
-    /* Powered By Badge */
+    /* 8 Hotspot Buttons aligned to the 2x4 grid on the flyer */
+    .artist-overlay {
+      position: absolute;
+      top: 28%;    /* starts over first row of artist boxes */
+      left: 2%;
+      width: 96%;
+      height: 58%; /* covers all 8 artist boxes down to signature */
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: repeat(4, 1fr);
+      gap: 6px;
+      z-index: 10;
+    }
+    .hotspot-btn {
+      background: transparent;
+      border: 1px dashed rgba(212, 175, 55, 0.0);
+      border-radius: 8px;
+      cursor: pointer;
+      outline: none;
+      -webkit-tap-highlight-color: transparent;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+    .hotspot-btn:active, .hotspot-btn:hover {
+      background: rgba(212, 175, 55, 0.28);
+      border-color: #d4af37;
+    }
+
+    /* Powered By Banner */
     .powered-bar {
       margin: 14px 16px 6px;
       background: linear-gradient(90deg, rgba(212,175,55,0.06), rgba(212,175,55,0.22), rgba(212,175,55,0.06));
@@ -154,57 +194,106 @@
       color: #d4af37;
       font-weight: 700;
     }
+
+    /* Modal Sheet Styling */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 100;
+      justify-content: center;
+      align-items: center;
+      padding: 16px;
+    }
+    .modal-card {
+      background: #0f1016;
+      border: 2px solid #d4af37;
+      border-radius: 18px;
+      width: 100%;
+      max-width: 380px;
+      padding: 22px 18px 20px;
+      box-shadow: 0 0 35px rgba(212, 175, 55, 0.4);
+      text-align: center;
+      position: relative;
+      animation: popIn 0.25s ease-out;
+    }
+    @keyframes popIn {
+      from { transform: scale(0.9); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+    .modal-close {
+      position: absolute;
+      top: 12px;
+      right: 14px;
+      background: transparent;
+      border: none;
+      color: #8c8f9b;
+      font-size: 22px;
+      font-weight: 700;
+      cursor: pointer;
+      line-height: 1;
+    }
+    .modal-genre {
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #d4af37;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+    .modal-title {
+      font-family: 'Cinzel', serif;
+      font-size: 20px;
+      letter-spacing: 2px;
+      color: #fff;
+      margin: 4px 0 16px;
+      font-weight: 900;
+    }
+    .outlet-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 12px 14px;
+      margin-bottom: 9px;
+      border-radius: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+      color: #fff;
+      transition: filter 0.2s, transform 0.2s;
+    }
+    .outlet-btn:hover {
+      filter: brightness(1.15);
+      transform: translateY(-1px);
+    }
+    .btn-yt {
+      background: #ff0000;
+      box-shadow: 0 3px 12px rgba(255, 0, 0, 0.35);
+    }
+    .btn-sp {
+      background: #1db954;
+      box-shadow: 0 3px 12px rgba(29, 185, 84, 0.35);
+    }
+    .btn-ig {
+      background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+      box-shadow: 0 3px 12px rgba(220, 39, 67, 0.35);
+    }
+    .btn-fb {
+      background: #1877f2;
+      box-shadow: 0 3px 12px rgba(24, 119, 242, 0.35);
+    }
+    .outlet-icon {
+      font-size: 16px;
+    }
   </style>
 </head>
 <body>
 
   <div class="ecard-container">
-    <!-- Displays the exact PNG filename you uploaded -->
+    <div class="tap-hint">👆 Tap Any Artist To Open Outlets</div>
+
     <div class="flyer-wrapper">
-      <img src="07AB0C5F-46E6-479E-8B18-317E112D7591.png" alt="Artista Music Official Artist Roster 2026">
-    </div>
-
-    <!-- Official Partnership Badge -->
-    <div class="powered-bar">
-      <div class="powered-label">⚡ POWERED BY</div>
-      <div class="powered-name">REGIOMEX MUSIC GROUP</div>
-    </div>
-
-    <!-- Booking Desk -->
-    <div class="booking-dock">
-      <div class="booking-label">Official Booking Representation</div>
-      <div class="rep-name">Fernando Sanchez</div>
-
-      <a href="tel:2103850515" class="btn-action btn-phone">
-        📞 Call (210) 385-0515
-      </a>
-
-      <a href="mailto:Fersan17@gmail.com?subject=Booking%20Inquiry%20-%20Artista%20Music%20Roster%202026" class="btn-action btn-email">
-        ✉️ Email Fersan17@gmail.com
-      </a>
-
-      <button onclick="shareCard()" class="btn-share">📤 Share This eCard</button>
-
-      <div class="footer-note">
-        All Rights Reserved • Artista Music LLC<br>
-        <span class="footer-highlight">POWERED BY REGIOMEX MUSIC GROUP</span>
-      </div>
-    </div>
-  </div>
-
-  <script>
-    function shareCard() {
-      if (navigator.share) {
-        navigator.share({
-          title: 'ARTISTA MUSIC - Official Booking Roster 2026',
-          text: 'Official booking contact and roster for Artista Music. Powered by Regiomex Music Group.',
-          url: window.location.href,
-        }).catch(() => {});
-      } else {
-        navigator.clipboard.writeText(window.location.href);
-        alert('Link copied to clipboard!');
-      }
-    }
-  </script>
-</body>
-</html>
+      <img src="07AB0C5F-46E6-479E-8B18-317E112D7591.png" alt="Artista
