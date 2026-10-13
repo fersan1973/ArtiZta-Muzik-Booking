@@ -33,49 +33,24 @@
       overflow: hidden;
       position: relative;
     }
-    .ecard-header {
-      padding: 24px 16px 14px;
-      text-align: center;
-      background: linear-gradient(180deg, rgba(212,175,55,0.18) 0%, rgba(9,10,13,0) 100%);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.35);
+
+    /* Flyer Showcase */
+    .flyer-wrapper {
+      width: 100%;
+      line-height: 0;
+      background: #000;
+      border-bottom: 2px solid #d4af37;
     }
-    .logo-badge {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 58px;
-      height: 58px;
-      border-radius: 50%;
-      border: 2px solid #d4af37;
-      background: radial-gradient(circle, #2d2305 0%, #000 80%);
-      box-shadow: 0 0 16px #d4af37;
-      margin-bottom: 10px;
-      font-family: 'Cinzel', serif;
-      font-size: 28px;
-      font-weight: 900;
-      color: #d4af37;
-    }
-    .brand-title {
-      font-family: 'Cinzel', serif;
-      font-size: 26px;
-      letter-spacing: 5px;
-      font-weight: 900;
-      background: linear-gradient(180deg, #fff2be 0%, #d4af37 60%, #8c6f1c 100%);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      text-transform: uppercase;
-      line-height: 1.1;
-    }
-    .brand-sub {
-      font-size: 9.5px;
-      letter-spacing: 4px;
-      color: #d4af37;
-      margin-top: 4px;
-      font-weight: 700;
+    .flyer-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: contain;
     }
 
+    /* Powered By Badge */
     .powered-bar {
-      margin: 12px 14px 4px;
+      margin: 14px 16px 6px;
       background: linear-gradient(90deg, rgba(212,175,55,0.06), rgba(212,175,55,0.22), rgba(212,175,55,0.06));
       border: 1px solid rgba(212, 175, 55, 0.6);
       border-radius: 8px;
@@ -100,76 +75,15 @@
       text-shadow: 0 0 10px rgba(212,175,55,0.6);
     }
 
-    .roster-banner {
-      background: linear-gradient(90deg, transparent, rgba(212,175,55,0.2), transparent);
-      padding: 10px 0;
-      margin-top: 10px;
-      border-top: 1px solid rgba(212, 175, 55, 0.3);
-      border-bottom: 1px solid rgba(212, 175, 55, 0.3);
-    }
-    .roster-title {
-      font-family: 'Cinzel', serif;
-      font-size: 16px;
-      letter-spacing: 4px;
-      color: #fff;
-      font-weight: 700;
-    }
-    .roster-year {
-      font-family: 'Cinzel', serif;
-      color: #d4af37;
-      font-size: 14px;
-      letter-spacing: 6px;
-    }
-
-    .roster-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      padding: 14px;
-    }
-    .artist-box {
-      background: rgba(255, 255, 255, 0.03);
-      border: 1px solid rgba(212, 175, 55, 0.38);
-      border-radius: 10px;
-      padding: 12px 8px;
-      text-align: center;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-    .artist-box:hover {
-      transform: translateY(-2px);
-      border-color: #d4af37;
-      box-shadow: 0 0 12px rgba(212, 175, 55, 0.25);
-    }
-    .artist-name {
-      font-size: 12px;
-      font-weight: 800;
-      color: #fff;
-      letter-spacing: 0.5px;
-      text-transform: uppercase;
-      line-height: 1.25;
-      min-height: 28px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .artist-tag {
-      font-size: 9px;
-      font-weight: 700;
-      color: #d4af37;
-      text-transform: uppercase;
-      letter-spacing: 0.8px;
-      margin-top: 4px;
-    }
-
+    /* Booking Dock */
     .booking-dock {
       background: linear-gradient(180deg, #13141b 0%, #07080a 100%);
-      border-top: 2px solid #d4af37;
-      padding: 20px 16px 22px;
+      padding: 16px 16px 22px;
       text-align: center;
     }
     .booking-label {
       font-family: 'Cinzel', serif;
-      font-size: 12px;
+      font-size: 11px;
       letter-spacing: 4px;
       color: #d4af37;
       text-transform: uppercase;
@@ -180,7 +94,7 @@
       font-style: italic;
       font-size: 24px;
       color: #fff;
-      margin: 4px 0 12px;
+      margin: 4px 0 14px;
     }
     .btn-action {
       display: flex;
@@ -191,7 +105,7 @@
       padding: 13px 18px;
       margin-bottom: 9px;
       border-radius: 999px;
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 800;
       letter-spacing: 1px;
       text-decoration: none;
@@ -245,57 +159,18 @@
 <body>
 
   <div class="ecard-container">
-    <div class="ecard-header">
-      <div class="logo-badge">A</div>
-      <div class="brand-title">Artista Music</div>
-      <div class="brand-sub">EST. MMXXVI • SAN ANTONIO, TEXAS</div>
-
-      <div class="powered-bar">
-        <div class="powered-label">⚡ POWERED BY</div>
-        <div class="powered-name">REGIOMEX MUSIC GROUP</div>
-      </div>
-
-      <div class="roster-banner">
-        <div class="roster-title">OFFICIAL ARTIST ROSTER</div>
-        <div class="roster-year">2026</div>
-      </div>
+    <!-- Displays the exact PNG filename you uploaded -->
+    <div class="flyer-wrapper">
+      <img src="07AB0C5F-46E6-479E-8B18-317E112D7591.png" alt="Artista Music Official Artist Roster 2026">
     </div>
 
-    <div class="roster-grid">
-      <div class="artist-box">
-        <div class="artist-name">Grupo Asalto</div>
-        <div class="artist-tag">Norteño</div>
-      </div>
-      <div class="artist-box">
-        <div class="artist-name">Grupo Yahari</div>
-        <div class="artist-tag">Pituficumbia</div>
-      </div>
-      <div class="artist-box">
-        <div class="artist-name">Ricardo Castillón<br>y La Diferenzia</div>
-        <div class="artist-tag">Tejano</div>
-      </div>
-      <div class="artist-box">
-        <div class="artist-name">Los Iniciadores CHDB</div>
-        <div class="artist-tag">Norteño Sax</div>
-      </div>
-      <div class="artist-box">
-        <div class="artist-name">The Delta Boyz</div>
-        <div class="artist-tag">Conjunto Rock</div>
-      </div>
-      <div class="artist-box">
-        <div class="artist-name">Sabor Kolombia</div>
-        <div class="artist-tag">Cumbia</div>
-      </div>
-      <div class="artist-box">
-        <div class="artist-name">La Calma</div>
-        <div class="artist-tag">Tejano</div>
-      </div>
-      <div class="artist-box">
-        <div class="artist-name">Grupo Luxoria</div>
-        <div class="artist-tag">Latin Rock / Fusion</div>
-      </div>
+    <!-- Official Partnership Badge -->
+    <div class="powered-bar">
+      <div class="powered-label">⚡ POWERED BY</div>
+      <div class="powered-name">REGIOMEX MUSIC GROUP</div>
     </div>
 
+    <!-- Booking Desk -->
     <div class="booking-dock">
       <div class="booking-label">Official Booking Representation</div>
       <div class="rep-name">Fernando Sanchez</div>
